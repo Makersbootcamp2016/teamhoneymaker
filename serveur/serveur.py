@@ -1,6 +1,7 @@
 import requests
 import time
 import os
+from shutil import copyfile
 
 from flask import Flask, request
 app = Flask(__name__)
@@ -76,8 +77,8 @@ def beebeeliotheque():
        file.save(filepath)
 
        name = "usershot.jpg"
-       filepath = os.path.join(os.path.dirname(os.path.abspath(__file__))+'/static/upload/', name)
-       file.save(filepath)
+       filepath2 = os.path.join(os.path.dirname(os.path.abspath(__file__))+'/static/upload/', name)
+       copyfile(filepath, filepath2)
        return 'SUCCESS'
 
    return 'ERROR: You\'re lost Dave..'
