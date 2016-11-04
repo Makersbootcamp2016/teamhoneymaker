@@ -46,7 +46,7 @@ def temperature():
 
     for sensor in dataJ['data']['sensors']:
         if sensor['id']==4:
-            temperature = sensor['value']
+            temperature = sensor['value'],2
     return str(temperature)
 
 
