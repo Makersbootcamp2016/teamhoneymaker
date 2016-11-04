@@ -74,6 +74,10 @@ def beebeeliotheque():
 
        filepath = os.path.join(os.path.dirname(os.path.abspath(__file__))+'/static/upload/', name)
        file.save(filepath)
+
+       name = "usershot.jpg"
+       filepath = os.path.join(os.path.dirname(os.path.abspath(__file__))+'/static/upload/', name)
+       file.save(filepath)
        return 'SUCCESS'
 
    return 'ERROR: You\'re lost Dave..'
