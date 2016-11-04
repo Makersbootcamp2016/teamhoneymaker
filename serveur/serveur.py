@@ -50,10 +50,10 @@ def temperature():
     return str(temperature)
 
 
-@app.route("/clak")
-def livehoney():
-    time.sleep (10)
-    return "YES"
+# @app.route("/clak")
+# def livehoney():
+#     time.sleep (10)
+#     return "YES"
 
 
     # Upload snapshot
@@ -68,7 +68,11 @@ def beebeeliotheque():
        if not file or file.filename == '':
            return 'ERROR: Wrong file..'        # Save Snapshot with Timestamp
 
-       filepath = os.path.join(os.path.dirname(os.path.abspath(__file__))+'/static/upload/', "usershot.jpg")
+       date = time.strftime('%y-%m-%d-%H-%M',time.localtime())
+       name = date+"_usershot.jpg"
+       print(name)
+
+       filepath = os.path.join(os.path.dirname(os.path.abspath(__file__))+'/static/upload/', name)
        file.save(filepath)
        return 'SUCCESS'
 
