@@ -1,5 +1,6 @@
 import requests
 import time
+import os
 
 from flask import Flask, request
 app = Flask(__name__)
@@ -51,7 +52,7 @@ def temperature():
 
 @app.route("/clak")
 def livehoney():
-    time.sleep (30)
+    time.sleep (10)
     return "YES"
 
 
