@@ -52,7 +52,7 @@ def temperature():
 
 @app.route("/clak")
 def livehoney():
-    time.sleep (30)
+    time.sleep (10)
     return "YES"
 
 
@@ -76,4 +76,4 @@ def beebeeliotheque():
 
 
 if __name__ == "__main__":
-    app.run (port=10000)
+    app.run (port=11000)
