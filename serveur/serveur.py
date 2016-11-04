@@ -1,6 +1,7 @@
 import requests
+import time
 
-from flask import Flask
+from flask import Flask, request
 app = Flask(__name__)
 
 
@@ -35,15 +36,6 @@ def hello():
 
 
 
-
-
-@app.route("/")
-def news():
-
-    base = jinja_env.get_template('base.html')
-    return base.render(humidity_value = humidity)
-
-
 @app.route("/temperature")
 def temperature():
     import requests
@@ -57,8 +49,30 @@ def temperature():
     return str(temperature)
 
 
+@app.route("/clak")
+def livehoney():
+    time.sleep (30)
+    return "YES"
 
+
+    # Upload snapshot
+@app.route("/shot", methods=['POST'])
+def beebeeliotheque():
+   if request.method == 'POST':
+       # check if the post request has the file part
+       if 'image' not in request.files:
+           return 'ERROR: No file..'
+
+       file = request.files['image']
+       if not file or file.filename == '':
+           return 'ERROR: Wrong file..'        # Save Snapshot with Timestamp
+
+       filepath = os.path.join(os.path.dirname(os.path.abspath(__file__))+'/static/upload/', "usershot.jpg")
+       file.save(filepath)
+       return 'SUCCESS'
+
+   return 'ERROR: You\'re lost Dave..'
 
 
 if __name__ == "__main__":
-    app.run(host="10.23.48.210", port=10000)
+    app.run (port=10000)
