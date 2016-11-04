@@ -51,7 +51,7 @@ def temperature():
 
 @app.route("/clak")
 def livehoney():
-    time.sleep (30)
+    time.sleep (10)
     return "YES"
 
 
